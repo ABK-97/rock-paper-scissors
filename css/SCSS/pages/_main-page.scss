@@ -76,6 +76,17 @@ header{
         }
     }
 }
+// ---------------------------------------------------------------main------------------------------------------------------
+.main{
+    display: flex;
+    flex-direction: column;
+    .section-1,.section-3{
+        order: 1;
+    }
+    .section-2{
+        order: 2;
+    }
+}
 // -----------------------------------------------section-1---------------------------------------------------------------
 .section-1{
     .pick-div{
@@ -83,7 +94,6 @@ header{
         margin: auto;
         position: relative;
         margin-top: 4rem;
-        margin-bottom: 4rem;
         .paper,.scissors,.rock{
             width: 10rem;
             height: 10rem;
@@ -160,11 +170,12 @@ header{
 }
 // -------------------------------------------------section-2--------------------------------------------------------------
 .section-2{
+    display: flex;
+    width: 70%;
+    margin: auto;
+    justify-content: flex-end;
     .ruls{
-        position: absolute;
         width: fit-content;
-        bottom: 5rem;
-        right: 5rem;
         padding: 0.5rem 1.2rem;
         color: white;
         border: 1px solid white;
@@ -207,9 +218,9 @@ header{
 // -------------------------------------------------------------section-2-media-mobile-------------------------------------
 @include mobile{
     .section-2{
+        justify-content: center;
         .ruls{
-            right: 50%;
-            transform: translate(50%,-50%);
+            margin-top: 6rem;
         }
         .ruls-img{
             .container{
