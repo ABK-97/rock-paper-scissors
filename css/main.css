@@ -122,6 +122,7 @@ header .container .score div.score-v {
           align-items: center;
   border-radius: 50%;
   position: absolute;
+  cursor: pointer;
 }
 
 .section-1 .pick-div .paper div, .section-1 .pick-div .scissors div, .section-1 .pick-div .rock div {
