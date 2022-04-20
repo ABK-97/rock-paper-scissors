@@ -1,0 +1,497 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    background: linear-gradient(180deg,hsl(214, 47%, 23%) 50%,hsl(237, 49%, 15%) 100%) ;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header{
+    padding: 2rem;
+    .container{
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+        margin: auto;
+        border: 4px solid $Header-outline;
+        border-radius: 20px;
+        padding: 1.2rem;
+        .score{
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 2.5rem;
+            border-radius: 15px;
+            color: $Score-text;
+            div{
+                font-size: 1.1rem;
+                text-transform: uppercase;
+                &.score-v{
+                    font-size: 3rem;
+                    color: $Header-outline;
+                }
+            }
+        }
+    }
+}
+// -------------------------------------------------header-media-mobile------------------------------------------------------
+@include mobile{
+    header{
+        padding: 2rem 0;
+        
+        .container{
+            width: 90%;
+            padding: 0.9rem;
+            .score{
+                padding: 0 1.2rem;
+                div{
+                    font-size: 0.9rem;
+                    &.score-v{
+                        font-size: 2rem;
+                    }
+                }
+            }
+        }
+    }
+}
+// -------------------------------------------------------header-media-small-tablet-----------------------------------------
+@include small {
+    header{
+        .container{
+            width: 70%;
+        }
+    }
+}
+@include tablets {
+    header{
+        .container{
+            width: 95%;
+        }
+    }
+}
+// -----------------------------------------------section-1---------------------------------------------------------------
+.section-1{
+    .pick-div{
+        width: fit-content;
+        margin: auto;
+        position: relative;
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+        .paper,.scissors,.rock{
+            width: 10rem;
+            height: 10rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            position: absolute;
+            div{
+                width: 7rem;
+                height: 7rem;
+                background-color: white;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                box-shadow: inset 0px 8px 0 #8080805e;
+            }
+            
+        }
+        .paper{
+            top: 0;
+            left: 0;
+            transform: translate(-40%, -40%);
+            background-color: hsl(230, 89%, 62%);
+            box-shadow: 0px 10px 0 #2f42a1;
+            animation-name: from-center-paper;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            
+        }
+        .scissors{
+            top: 0;
+            right: 0;
+            transform: translate(40%, -40%);
+            background-color: hsl(39, 89%, 49%);
+            box-shadow: 0px 10px 0 #835707;
+            animation-name: from-center-scissors;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+        }
+        .rock{
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%,-80%);
+            background-color: hsl(349, 71%, 52%);
+            box-shadow: 0px 10px 0 #952035;
+            animation-name: from-center-rock;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+        }
+
+    }
+}
+// -----------------------------------------------media-mobile------------------------------------------------------------
+@include mobile{
+    .section-1{
+        .pick-div{
+            width: 60%;
+            .tringle{
+                width: 100%;
+            }
+            .rock,.scissors,.paper{
+                width: 7rem;
+                height: 7rem;
+                div{
+                    width: 5rem;
+                    height: 5rem;
+                }
+            }
+        }
+    }
+}
+// -------------------------------------------------section-2--------------------------------------------------------------
+.section-2{
+    .ruls{
+        position: absolute;
+        width: fit-content;
+        bottom: 5rem;
+        right: 5rem;
+        padding: 0.5rem 1.2rem;
+        color: white;
+        border: 1px solid white;
+        letter-spacing: 0.19rem;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+    .ruls-img{
+        background-color: #0000008c;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 99;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        display: none;
+        .container{
+            background-color: white;
+            width: fit-content;
+            padding: 1.5rem;
+            position: relative;
+            h1{
+                margin-bottom: 10%;
+                text-transform: uppercase;
+            }
+            .close{
+                position: absolute;
+                top: 7%;
+                right: 7%;
+                cursor: pointer;
+            }
+
+        }
+    }
+
+}
+// -------------------------------------------------------------section-2-media-mobile-------------------------------------
+@include mobile{
+    .section-2{
+        .ruls{
+            right: 50%;
+            transform: translate(50%,-50%);
+        }
+        .ruls-img{
+            .container{
+                width: 100%;
+                height: 100%;
+                padding: 7.5rem 1.5rem;
+                text-align: center;
+                h1{
+                    margin-bottom: 20%;
+                }
+                .close{
+                    top: 80%;
+                    right: 50%;
+                    transform: translate(50%, 100%);
+                }
+            }
+        }
+    }
+}
+// -----------------------------------------------------section-3------------------------------------------------------------
+.section-3{
+    width: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    letter-spacing: 0.1rem;
+    p{
+        color: white;
+        text-transform: uppercase;
+        font-size: 25px;
+
+    }
+    .your-pick{
+        order: 1;
+
+    }
+    .your-pick,.house-pick{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
+    }
+    .house-pick{
+        order: 3;
+    }
+    .win-lose{
+        order: 2;
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h2{
+            text-transform: uppercase;
+            font-size: 32px;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        button{
+            padding: 0.5rem 2.8rem;
+            border: none;
+            color: $Dark-text;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            &:hover{
+                color: hsl(349, 71%, 52%);
+            }
+        }
+    }
+    .paper{
+        box-shadow: 0px 10px 0 #2f42a1;
+        background-color: hsl(230, 89%, 62%);
+    }
+
+    .scissors{
+        box-shadow: 0px 10px 0 #835707;
+        background-color: hsl(39, 89%, 49%);
+    }
+    .rock{
+        box-shadow: 0px 10px 0 #952035;
+        background-color: hsl(349, 71%, 52%);
+
+    }
+    .blank{
+        background-color: #122032;
+    }
+    .paper,.scissors,.rock,.blank{
+        width: 15rem;
+        height: 15rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        margin: 70px auto;
+        position: relative;
+        &.active{
+            .span-1,.span-2{
+                border-radius: 50%;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                animation-name: circle;
+                animation-duration: 0.9s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+            }
+            .span-1{
+                transform: scale(1.3,1.3);
+                z-index: -1;
+                background-color: rgba(255, 255, 255, 0.05);
+            }
+            .span-2{
+                transform: scale(1.7,1.7);
+                z-index: -2;
+                background-color: rgba(255, 255, 255, 0.03);
+                animation-delay: 0.2s;
+            }
+        }
+        div{
+            width: 10rem;
+            height: 10rem;
+            background-color: white;
+            padding: 10px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: inset 0px 8px 0 #8080805e;
+        }
+    }
+}
+// --------------------------------------------------section-3 -media---------------------------------------------
+@include mobile{
+    .section-3{
+        width: 90%;
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 2rem;
+        .your-pick{
+            order: 1;
+        }
+        .your-pick,.house-pick{
+            width: 50%;
+            flex-direction: column-reverse;
+            gap: 0rem;
+            p{
+                font-size: 14px;
+            }
+        }
+        .house-pick{
+            order: 2;
+            text-align: center;    
+        }
+        .win-lose{
+            order: 3;
+            width: 100%;
+        }
+        .paper,.scissors,.rock,.blank{
+            width: 7rem;
+            height: 7rem;
+            &.active{
+                .span-1{
+                    transform: scale(1.3,1.3);
+                }
+                .span-2{
+                    transform: scale(1.6,1.6);
+                }
+            }
+            div{
+                width: 5rem;
+                height: 5rem;
+            }
+            
+        }
+    }
+}
+// --------------------------------------------------section-3-media-tablets-------------------------------------------------
+@include tablets{
+   
+        .section-3{
+            width: 90%;
+            flex-wrap: wrap;
+            justify-content: center;
+            row-gap: 2rem;
+            .your-pick{
+                order: 1;
+            }
+            .your-pick,.house-pick{
+                width: 50%;
+                flex-direction: column-reverse;
+                gap: 0rem;
+                p{
+                    font-size: 14px;
+                }
+            }
+            .house-pick{
+                order: 2;
+                text-align: center;    
+            }
+            .win-lose{
+                order: 3;
+                width: 100%;
+            }
+            .paper,.scissors,.rock,.blank{
+                width: 7rem;
+                height: 7rem;
+                &.active{
+                    .span-1{
+                        transform: scale(1.5,1.5);
+                    }
+                    .span-2{
+                        transform: scale(1.9,1.9);
+                    }
+                }
+                div{
+                    width: 5rem;
+                    height: 5rem;
+                }
+                
+            }
+        }
+    
+}
+// --------------------------------------------------section-3-media-small--------------------------------------------------
+@include small{
+    .section-3{
+        width: 100%;
+        .paper,.scissors,.rock,.blank{
+            width: 12rem;
+            height: 12rem;
+            div{
+                width: 9rem;
+                height: 9rem;
+            }   
+        }
+    }
+}
+// -------------------------------------------------------footer---------------------------------------------------------
+footer{
+    margin-top: auto;
+    font-size: 1rem; 
+    text-align: center; 
+    color: white;
+    padding: 1rem;
+    a{
+        color: $Header-outline;
+    }
+}
+// -----------------------------------------------key-frames-------------------------------------------------------------
+@keyframes from-center-paper {
+    0% {
+        transform: translate(55%, 15%);
+    }
+    100% {
+        transform: translate(-40%, -40%);
+    }
+}
+@keyframes from-center-scissors {
+    0% {
+        transform: translate(-55%, 15%);
+    }
+    100% {
+        transform: translate(40%, -40%);
+    }
+}
+@keyframes from-center-rock{
+    0%{
+        transform: translate(-50%, -175%);
+    }
+    100%{
+        transform: translate(-50%,-80%);
+    }
+}
+
+@keyframes circle{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0.1;
+    }
+}
